@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/mobilka_avto.iml" filepath="$PROJECT_DIR$/mobilka_avto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/mobilka_avto_android.iml" filepath="$PROJECT_DIR$/android/mobilka_avto_android.iml" />
+    </modules>
+  </component>
+</project>
