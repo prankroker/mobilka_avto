@@ -71,7 +71,7 @@ class _InputForms extends State<InputForms> {
               ),
             ),
             const SizedBox(height: 20,),
-            //треба зробити неактивною доки не введено інформацію в текстові поля
+            //треба буде зробити неактивною доки не введено інформацію в текстові поля
             TextButton(
               onPressed:(){
                 Navigator.push(
