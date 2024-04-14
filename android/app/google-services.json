@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "347078480049",
+    "project_id": "mobilka-avto",
+    "storage_bucket": "mobilka-avto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347078480049:android:e4cd0de7bfb9c69a1a5290",
+        "android_client_info": {
+          "package_name": "com.prankroker.mobilka_avto"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjwBxs6zHNVW5QzTdWWIpPWFdH_EQ5viU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

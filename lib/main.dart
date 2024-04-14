@@ -1,9 +1,20 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mobilka_avto/registration.dart';
 import 'package:mobilka_avto/login.dart';
 import 'package:mobilka_avto/theme.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() => runApp(const MyHome());
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  if(kIsWeb) {
+    await Firebase.initializeApp(options: const FirebaseOptions(apiKey: "AIzaSyAk0JLvnIMKyFGtCKh0jHhA8wa9xvEyuSw", appId: "1:347078480049:web:7cc68b1ec0e19b231a5290", messagingSenderId: "347078480049", projectId: "mobilka-avto"));
+  }
+  else{
+    await Firebase.initializeApp();
+  }
+  runApp(const MyHome());
+}
 
 class MyHome extends StatelessWidget {
   const MyHome({super.key});
@@ -11,6 +22,7 @@ class MyHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: buildAppTheme(),
       home: const MyApp(),
     );
