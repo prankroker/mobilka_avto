@@ -53,7 +53,7 @@ class _InputForms extends State<InputForms>{
               TextField(
                 controller: usernameController,
                 decoration: const InputDecoration(
-                  labelText: 'Введіть юзернейм або пошту',
+                  labelText: 'Введіть юзернейм',
                 ),
               ),
               const SizedBox(height: 20,),
