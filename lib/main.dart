@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget{
     const String appTitle = 'Оренда авто';// назва в шапці
       return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: const Text(appTitle),
           centerTitle: true,
         ),

@@ -14,6 +14,7 @@ class MainPage extends StatelessWidget{
       data: buildAppTheme(),
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: const Text(appTitle),
           centerTitle: true,
           actions: [
@@ -22,7 +23,7 @@ class MainPage extends StatelessWidget{
               onPressed:(){
                 Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Profile())
+                    MaterialPageRoute(builder: (context) => Profile())
                 );
               },
             )

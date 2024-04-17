@@ -31,6 +31,11 @@ dependencies:
   cloud_firestore:
   firebase_core:
   flutter_map:
+  firebase_storage:
+  firebase_auth:
+  google_sign_in:
+  font_awesome_flutter:
+  fluttertoast:
   latlong2:
   flutter:
     sdk: flutter

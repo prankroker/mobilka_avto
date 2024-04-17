@@ -1,9 +1,18 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mobilka_avto/global/common/toast.dart';
 import 'package:mobilka_avto/login.dart';
 import 'package:mobilka_avto/theme.dart';
+import 'package:mobilka_avto/firebase_auth_implementation/firebase_auth_services.dart';
 
-class Registration extends StatelessWidget{
+class Registration extends StatefulWidget{
   const Registration({super.key});
+
+  @override
+  State<Registration> createState() => _RegistrationState();
+}
+
+class _RegistrationState extends State<Registration> {
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +21,7 @@ class Registration extends StatelessWidget{
       data: buildAppTheme(),
     child: Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text(appTitle),
         centerTitle: true,
       ),
@@ -29,9 +39,12 @@ class InputForms extends StatefulWidget {
 }
 
 class _InputForms extends State<InputForms> {
-  final usernameController = TextEditingController();
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+
+  final FirebaseAuthService _auth = FirebaseAuthService();
+
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   void dispose() {
@@ -71,20 +84,45 @@ class _InputForms extends State<InputForms> {
               ),
             ),
             const SizedBox(height: 20,),
-            //треба буде зробити неактивною доки не введено інформацію в текстові поля
             TextButton(
               onPressed:(){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Login())
-                );
+                _signUp();
               },
               child: const Text("Далі"),
+            ),
+            const SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Вже маєте аккаунт?"),
+                const SizedBox(height: 5,),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+                  },
+                  child: const Text(" Ввійдіть в нього",style: TextStyle(color: Colors.cyan,fontWeight: FontWeight.bold),),
+                )
+              ],
             )
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _signUp() async{
+    String username = usernameController.text;
+    String email = emailController.text;
+    String password = passwordController.text;
+
+    User? user = await _auth.signUpWithEmailAndPassword(email, password);
+
+    if(user != null){
+      showToast(message: "User is succesfully created");
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+    } else {
+      showToast(message: "Some error happend");
+    }
   }
 }
